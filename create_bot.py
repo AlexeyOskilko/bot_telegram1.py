@@ -7,11 +7,16 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 import config
+from data_base import sqlite_db
 
 storage=MemoryStorage()
 
 bot = Bot(token=config.TOKEN)#os.getenv('TOKEN'))
 dp = Dispatcher(bot,storage=storage)
+
+async def on_startup(_):
+    print('Бот вышел в онлайн')
+    sqlite_db.sql_start()
 
 answ = dict()
 
@@ -57,6 +62,7 @@ async def inline_handler(query: types.InlineQuery):
 
     await query.answer(articles, cache_time=1, is_personal=True)
 
+executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
 
 
 
