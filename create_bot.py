@@ -6,11 +6,10 @@ import os, hashlib
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
-import config
 
 storage=MemoryStorage()
 
-bot = Bot(token=config.TOKEN)#os.getenv('TOKEN'))
+bot = Bot(token=os.getenv('TOKEN'))
 dp = Dispatcher(bot,storage=storage)
 
 
