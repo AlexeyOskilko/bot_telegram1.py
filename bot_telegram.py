@@ -1,5 +1,4 @@
 import os
-
 from aiogram.utils import executor
 import config
 from create_bot import dp
