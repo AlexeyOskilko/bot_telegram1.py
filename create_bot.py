@@ -9,7 +9,7 @@ from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 
 
 from aiogram.utils import executor
-import dp
+# import dp
 from data_base import sqlite_db
 
 
