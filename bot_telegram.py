@@ -4,17 +4,15 @@ import config
 from create_bot import dp
 from data_base import sqlite_db
 from create_bot import bot
-
-
-
+from data_base.sqlite_db import base, cur
 async def on_startup(dp):
     print('Бот вышел в онлайн')
     await bot.set_webhook(config.URL_APP)
 
 async def on_shutdown(dp):
     await bot.delete_webhook()
-    # cur.close()
-    # base.close()
+    cur.close()
+    base.close()
 
 from handlers import client, admin, other
 
