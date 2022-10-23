@@ -14,8 +14,8 @@ async def on_startup(dp):
 
 async def on_shutdown(dp):
     await bot.delete_webhook()
-    cur.close()
-    base.close()
+    # cur.close()
+    # base.close()
 
 from handlers import client, admin, other
 
