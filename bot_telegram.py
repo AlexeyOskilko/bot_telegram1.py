@@ -4,7 +4,6 @@ import config
 from create_bot import dp
 from data_base import sqlite_db
 from create_bot import bot
-from data_base.sqlite_db import base, cur
 
 
 
