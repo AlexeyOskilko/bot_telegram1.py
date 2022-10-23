@@ -9,6 +9,7 @@ from aiogram.types import InputTextMessageContent, InlineQueryResultArticle
 import config
 
 
+
 storage=MemoryStorage()
 
 bot = Bot(token=config.TOKEN)#os.getenv('TOKEN'))
