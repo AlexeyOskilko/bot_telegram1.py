@@ -3,14 +3,14 @@ import sqlite3 as sq
 from create_bot import bot
 import psycopg2 as ps
 
-base = ps.connect(os.environ.get('DATABASE_URL'), sslmode='require')#base = sq.connect('pizza_cool.db')
+base = sq.connect('pizza_cool.db')
 cur = base.cursor()
 
 
-    # if base:
-    #     print('Data base connected OK!')
-    # base.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY, description TEXT, price TEXT)')
-    # base.commit()
+    if base:
+        print('Data base connected OK!')
+    base.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY, description TEXT, price TEXT)')
+    base.commit()
 
 async def sql_add_command(state):
     async with state.proxy()as data:
