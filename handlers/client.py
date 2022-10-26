@@ -3,7 +3,7 @@ from create_bot import dp, bot
 from keyboards import kb_client
 from aiogram.types import ReplyKeyboardRemove
 from data_base import sqlite_db
-
+from data_base.sqlite_db import conn, cur, result
 # @dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
     try:
@@ -24,7 +24,7 @@ async def pizza_place_command(message : types.Message):
 
 @dp.message_handler(commands=["Меню"])
 async def pizza_menu_command(message : types.Message):
-    await sqlite_db.sql_read(message)
+    await bot.send_message(message.from_user.id, result)
 
 def register_handlers_clients ( dp : Dispatcher):
     dp.register_message_handler(command_start, commands=['start', 'help'])
