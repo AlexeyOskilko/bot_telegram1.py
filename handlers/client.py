@@ -3,7 +3,6 @@ from create_bot import dp, bot
 from keyboards import kb_client
 from aiogram.types import ReplyKeyboardRemove
 from data_base import sqlite_db
-from data_base.sqlite_db import conn, cur, result
 # @dp.message_handler(commands=['start', 'help'])
 async def command_start(message : types.Message):
     try:
