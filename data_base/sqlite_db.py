@@ -7,7 +7,7 @@ DATABASE_URL = 'postgres://pkfpxpakcwftld:23961115710b9bce1a0d4b5ec226af0ada68d4
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 cur = conn.cursor()
 
-cur.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY, description TEXT, price TEXT)')
+conn.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY, description TEXT, price TEXT)')
 conn.commit()
 async def sql_add_command(state):
     async with state.proxy()as data:
