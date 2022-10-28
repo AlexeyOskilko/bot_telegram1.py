@@ -16,7 +16,7 @@ async def sql_add_command(state):
 # #
 async def sql_read(message):
     for ret in cur.execute('SELECT * FROM menupizza').fetchall():
-    await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
+        await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
 #
 async def sql_delete_command(data):
     cur.execute('DELETE FROM menupizza WHERE name == ?', (data,))
