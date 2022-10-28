@@ -11,13 +11,13 @@ cur.execute('CREATE TABLE IF NOT EXISTS menu(img TEXT,name TEXT PRIMARY KEY, des
 conn.commit()
 async def sql_add_command(state):
     async with state.proxy()as data:
-        cur.execute('INSERT INTO menupiza VALUES(?, ?, ?, ?)', tuple(data.values()))
+        cur.execute('INSERT INTO menu VALUES(?, ?, ?, ?)', tuple(data.values()))
         conn.commit()
 # #
 async def sql_read(message):
-    for ret in cur.execute('SELECT * FROM menupizza').fetchall():
+    for ret in cur.execute('SELECT * FROM menu').fetchall():
         await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
 #
 async def sql_delete_command(data):
-    cur.execute('DELETE FROM menupizza WHERE name == ?', (data,))
+    cur.execute('DELETE FROM menu WHERE name == ?', (data,))
 
