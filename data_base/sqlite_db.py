@@ -20,12 +20,12 @@ print(result)
 # #         cur.execute('INSERT INTO menu VALUES(?, ?, ?, ?)', tuple(data.values()))
 # #         base.commit()
 # #
-# async def sql_read(message):
-#     for ret in cur.execute('SELECT * FROM menupizza').fetchall():
-#         await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
+async def sql_read(message):
+    for ret in cur.execute('SELECT * FROM menupizza').fetchall():
+        await bot.send_photo(message.from_user.id, ret[0], f'{ret[1]}\nОписание: {ret[2]}\nЦена {ret[-1]}')
 #
 # async def sql_read2():
 #
-# async def sql_delete_command(data):
-#     cur.execute('DELETE FROM menu WHERE name == ?', (data,))
+async def sql_delete_command(data):
+    cur.execute('DELETE FROM menupizza WHERE name == ?', (data,))
 
