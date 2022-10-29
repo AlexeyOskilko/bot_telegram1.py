@@ -7,7 +7,7 @@ from create_bot import bot
 async def on_startup(dp):
     print('Бот вышел в онлайн')
     await bot.set_webhook(config.URL_APP)
-    await sqlite_db.sql_start()
+    sqlite_db.sql_start()
 async def on_shutdown(dp):
     await bot.delete_webhook()
 
